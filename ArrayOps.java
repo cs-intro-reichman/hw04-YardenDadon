@@ -1,6 +1,6 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        
+        test
     }
     
     public static int findMissingInt (int [] array) {
