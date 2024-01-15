@@ -1,7 +1,7 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int[] input1 = {1, 0, 3};
-        System.out.println(findMissingInt(input1));
+      //  int[] input1 = {1, 0, 3};
+       // System.out.println(findMissingInt(input1));
     }
     public static int findMissingInt (int [] array) {
         if (array.length == 1) {return 1;}
