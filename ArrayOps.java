@@ -1,9 +1,47 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int[] input =  {-202, 48, 13, 7, 8};
-        System.out.println(secondMaxValue(input));
+    //    int[] input1 = {1, -2, 3};
+     //   System.out.println(isSorted(input1));
+      //  int[] input2 = {2, 1};
+    //    System.out.println(containsTheSameElements(input1, input2));
     }
 
+    public static boolean isSorted(int [] array) {
+        boolean increasingOrder = true;
+        for (int index = 0; index < array.length - 1; index++){
+            if (array[index] >= array[index + 1]) {increasingOrder = false;}
+        }
+        boolean decreasingOrder = true;
+        for (int index = 0; index < array.length - 1; index++){
+            if (array[index] <= array[index + 1]) {decreasingOrder = false;}
+        }
+
+       // System.out.println(increasingOrder + " " + decreasingOrder);
+        if (increasingOrder == true || decreasingOrder == true) {return true;}
+        else {return false;}
+    }
+
+    public static boolean containsTheSameElements(int [] array1,int [] array2) {
+        //Issue: Array would not continue to check all of its elements if the first few exist
+        //Solution: Create a second set of loops comparing the second to the first and vice versa
+        boolean inequality = true;
+        for (int array1Index = 0; array1Index < array1.length; array1Index++) {
+            inequality = true;
+            for (int array2Index = 0; array2Index < array2.length; array2Index++) {
+                if (array1[array1Index] == array2[array2Index]) {inequality = false; break;}
+            }
+            if (inequality) {return !inequality;}
+        }
+
+        for (int array2Index = 0; array2Index < array2.length; array2Index++) {
+            inequality = true;
+            for (int array1Index = 0; array1Index < array1.length; array1Index++) {
+                if (array1[array1Index] == array2[array2Index]) {inequality=false;break;}
+            }
+            if (inequality) {return !inequality;}
+        }
+        return true;
+    }
 
     public static int secondMaxValue(int [] array) {
         int highestNumber = 0;
@@ -23,9 +61,6 @@ public class ArrayOps {
         }
         return secondHighest;
      } 
-
-
-
 
     public static int findMissingInt (int [] array) {
         //main issue was that missingNumber did not compute correctly for arrays without 
@@ -49,15 +84,4 @@ public class ArrayOps {
         }
         return missingNumber;
     }
-
-    public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        // Write your code here:
-        return false;
-    }
-
-    public static boolean isSorted(int [] array) {
-        // Write your code here:
-        return false;
-    }
-
 }
