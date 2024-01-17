@@ -2,9 +2,31 @@ public class StringOps {
     public static void main(String[] args) {
         String input = args[0];
        // System.out.println(capVowelsLowRest(input));
-      System.out.println(camelCase(input));
-      //System.out.println(allIndexOf(input, 'l'));
+      //System.out.println(camelCase(input));
+      System.out.println(allIndexOf(input, 'l'));
     }
+    //////////////////////////////////////////////////////////////////////////////////////////
+    public static int[] allIndexOf (String string, char chr) {
+        //make an array with the size of string.length
+        //if the letter in the string matches the input letter, 
+        int arraySizeCounter = 0;
+        for (int loop = 0; loop < string.length(); loop++){
+            if (string.charAt(loop) == chr){
+                arraySizeCounter++;
+            }
+        }
+
+        int[] output = new int[arraySizeCounter];
+        int arrayElementLocation = 0;
+        for (int loop = 0; loop < string.length(); loop++){
+            if (string.charAt(loop) == chr){
+                output[arrayElementLocation] = loop;
+                arrayElementLocation++;
+            }
+        }
+        return output;
+    }
+
 ////////////////////////////////////////////////////////////////////
     public static String camelCase (String string) {
         String newString = makeItLowerCase(string);
@@ -93,19 +115,6 @@ public class StringOps {
             else {newString += string.charAt(loop);}
         }
         return newString;
-    }
-//////////////////////////////////////////////////////////////////////////////////////////
-    public static int[] allIndexOf (String string, char chr) {
-        int length = string.length();
-        int[] output = new int[length];
-        int indexInArray = 0;
-        for (int loop = 0; loop < string.length(); loop++){
-            if (string.charAt(loop) == chr){
-                output[indexInArray] = loop;
-                indexInArray++;
-            }
-        }
-        return output;
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
